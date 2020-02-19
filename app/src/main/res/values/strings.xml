@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="Zero">0</string>
+    <string name="One">1</string>
+    <string name="Two">2</string>
+    <string name="Three">3</string>
+    <string name="Four">4</string>
+    <string name="Five">5</string>
+    <string name="Six">6</string>
+    <string name="Seven">7</string>
+    <string name="Eight">8</string>
+    <string name="Nine">9</string>
+    <string name="delete">DEL</string>
+    <string name="ans">ANS</string>
+    <string name="exp">^</string>
+    <string name="div">/</string>
+    <string name="mult">*</string>
+    <string name="minus">-</string>
+    <string name="plus">+</string>
+    <string name="equals">☭</string>
+    <string name="dot">.</string>
+    <string name="space"> </string>
+</resources>
