@@ -17,8 +17,34 @@ Just Download it from the official [website](https://developer.android.com/studi
 
 #### Arch Linux
 
-I had some problems trying to install this with yay so I will show you how to build and install this package by yourself (later).
+I had some problems trying to install this with yay so I will show you how to build and install this package by yourself.
+First and foremost lets clone the repo.
+```bash
+    git clone https://aur.archlinux.org/android-studio.git
 
+```
+
+Now we are going to build the package.
+
+```bash
+    cd android-studio/
+    makepkg -s
+```
+
+Using pacman we can install now owr package. (version number may had change)
+
+```bash
+
+    sudo pacman -U --noconfirm android-studio-3.5.3.0-1-x86_64.pkg.tar.xz
+
+```
+
+And we are done. Now try to run Android Studio now from the term!
+
+```bash
+    android-studio
+
+``` 
 
 ## Built With
 
