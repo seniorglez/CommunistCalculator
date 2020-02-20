@@ -1,4 +1,4 @@
-package com.example.calculator;
+package com.example.calculator.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,9 @@ import android.os.Vibrator;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import java.lang.Math;
+
+import com.example.calculator.R;
+import com.example.calculator.model.Calculator;
 
 
 public class MainActivity extends AppCompatActivity implements  View.OnClickListener{
@@ -16,7 +18,6 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
     private String input = "";
     private String ans = "";
     private final String OPERATION_SIMBOLS = "/*+^-";
-    private String patten = "(?=[\\^*+\\-\\/])|(?<=[\\^*+\\-\\/])";//añadido un caracter de escape para escapar el caracter de escape
     Vibrator v;
 
 
@@ -36,41 +37,14 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         switch(view.getId()){
             //numbers
             case R.id.button1:
-                input+=button.getText();
-                setInput();
-                break;
             case R.id.button2:
-                input+=button.getText();
-                setInput();
-                break;
             case R.id.button3:
-                input+=button.getText();
-                setInput();
-                break;
             case R.id.button4:
-                input+=button.getText();
-                setInput();
-                break;
             case R.id.button5:
-                input+=button.getText();
-                setInput();
-                break;
             case R.id.button6:
-                input+=button.getText();
-                setInput();
-                break;
             case R.id.button7:
-                input+=button.getText();
-                setInput();
-                break;
             case R.id.button8:
-                input+=button.getText();
-                setInput();
-                break;
             case R.id.button9:
-                input+=button.getText();
-                setInput();
-                break;
             case R.id.button0:
                 input+=button.getText();
                 setInput();
@@ -78,29 +52,9 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
                 //operations
 
             case R.id.buttonDiv:
-                if(!endWithOperation()){
-                    input+=button.getText();
-                    setInput();
-                }
-                break;
             case R.id.buttonExp:
-                if(!endWithOperation()){
-                    input+=button.getText();
-                    setInput();
-                }
-                break;
             case R.id.buttonMinus:
-                if(!endWithOperation()){
-                    input+=button.getText();
-                    setInput();
-                }
-                break;
             case R.id.buttonMult:
-                if(!endWithOperation()){
-                    input+=button.getText();
-                    setInput();
-                }
-                break;
             case R.id.buttonPlus:
                 if(!endWithOperation()){
                     input+=button.getText();
@@ -134,34 +88,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
     }
 
     private void calculateResult() {
-
-
-            String[] split = input.split(patten);
-            double res = Double.parseDouble(split[0]);
-        for (int i = 1; i < split.length-1; i+=2) {
-
-            switch (split[i]){
-                case "+":
-                    res = res +Double.parseDouble(split[i+1]);
-                    break;
-                case "-":
-                    res = res -Double.parseDouble(split[i+1]);
-                    break;
-                case "/":
-                    res = res/Double.parseDouble(split[i+1]);
-                    break;
-                case "*":
-                    res = res*Double.parseDouble(split[i+1]);
-                    break;
-                default://^
-                    res = (Math.pow(res,Double.parseDouble(split[i+1])));
-
-            }
-
-        }
-        setResult(res+"");
-
-
+        setResult(Calculator.getCalculatorInstance().calculate(input)  +"");
     }
 
     private void setInput() {
