@@ -26,10 +26,15 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         v= (Vibrator) getSystemService(VIBRATOR_SERVICE);
-
     }
 
 
+    /**
+     *  Updates the input field of the calculator or calculates the result of the saved operation.
+     *  It depends on what view triggers the method. It also make the device vibrate for 100 milliseconds.
+     *
+     * @param view The component that triggers this method
+     */
     @Override
     public void onClick(View view) {
 
@@ -56,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
             case R.id.buttonMinus:
             case R.id.buttonMult:
             case R.id.buttonPlus:
+            case R.id.buttonDot:
                 if(!endWithOperation()){
                     input+=button.getText();
                     setInput();
@@ -74,31 +80,39 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
                     setInput();
                 }
                 break;
-
-            case R.id.buttonDot://añadir doble . //bug aquí
-                if(!endWithOperation()){
-                    input+=button.getText();
-                    setInput();
-                }
-                break;
-
         }
 
         v.vibrate(100);
     }
 
+    /**
+     * Calculates the result of the operations represented on the input and updates the result view
+     * text with that result.
+     */
     private void calculateResult() {
         setResult(Calculator.getCalculatorInstance().calculate(input)  +"");
     }
 
+    /**
+     * Updates the input view  text with the input value.
+     */
     private void setInput() {
         ((TextView)findViewById(R.id.textViewInput)).setText(input);
     }
 
+
+    /**
+     * Updates the result view text
+     * @param s the new text
+     */
     private void setResult(String s){
         ((TextView)findViewById(R.id.textViewResult)).setText(s);
     }
 
+    /**
+     * Checks if the input ends with an operation
+     * @return true if it's ends with an operation and false if it's not.
+     */
     private boolean endWithOperation() {
         char[] operations = OPERATION_SIMBOLS.toCharArray();
         for(int i=0; i<operations.length; i++){
