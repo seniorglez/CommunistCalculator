@@ -1,6 +1,6 @@
 # CommunistCalculator
 
-A meme calculator that actually partially works
+A meme calculator
 
 ![A funny picture](https://i.imgur.com/P8gNpGs.png)
 ## Getting Started
