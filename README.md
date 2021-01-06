@@ -49,6 +49,7 @@ And we are done. Now try to run Android Studio now from the term!
 ## Built With
 
 * [AndroidStudio](https://developer.android.com/studio/) - The IDE I used
+* [Casio-LikeCalculatorLib](https://github.com/seniorglez/Casio-LikeCalculatorLib) - A simple library that aims to be able to do all the stuff that a scholar calculator can do with an awful name ;)
 
 ## Contributing
 
