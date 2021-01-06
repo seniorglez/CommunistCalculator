@@ -9,11 +9,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.calculator.R;
-import com.example.calculator.model.Calculator;
+import com.seniorglez.calc.ExpressionParser;
 
 
-public class MainActivity extends AppCompatActivity implements  View.OnClickListener{
-//lo hago de esta manera para poder añadir el listener desde el xml y no desde el propio codigo
+public class MainActivity extends AppCompatActivity implements  View.OnClickListener {
 
     private String input = "";
     private String ans = "";
@@ -90,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
      * text with that result.
      */
     private void calculateResult() {
-        setResult(Calculator.getCalculatorInstance().calculate(input)  +"");
+        setResult(new ExpressionParser(input).parse() +"");
     }
 
     /**
