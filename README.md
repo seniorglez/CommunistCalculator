@@ -2,7 +2,11 @@
 
 A meme calculator
 
-![A funny picture](https://i.imgur.com/P8gNpGs.png)
+<p align="center">
+    <img src= "https://i.imgur.com/P8gNpGs.png" alt="A funny picture"/>
+</p>
+
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
